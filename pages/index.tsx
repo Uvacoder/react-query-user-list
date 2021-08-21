@@ -6,7 +6,7 @@ import type { NextPage } from "next";
 import { UsersList } from "../components/UsersList";
 import Head from "next/head"
 import {
-  Flex,
+  Center,
   Container,
   Heading,
   IconButton,
@@ -35,13 +35,13 @@ const Home: NextPage = () => {
     <Container pt={16}>
       <Head><title>User List</title></Head>
       <Heading textAlign="center">Users list</Heading>
-      <Flex py={6} width="100%" justifyContent="flex-end">
+      <Center py={16}>
         <InputGroup maxW={250}>
           <InputLeftElement
             color="rgba(0, 0, 0, 0.1)"
             pointerEvents="none"
-            children={<SearchIcon />}
-          />
+          >
+            <SearchIcon /></InputLeftElement>
           <Input
             variant="flushed"
             value={searchPhrase}
@@ -56,7 +56,7 @@ const Home: NextPage = () => {
             />
           </InputRightElement>
         </InputGroup>
-      </Flex>
+      </Center>
       <UsersList searchPhrase={searchPhrase} />
     </Container>
   );
