@@ -1,5 +1,7 @@
 # `user-list`
 
+[![codecov](https://codecov.io/gh/kosciak9/user-list/branch/main/graph/badge.svg?token=6VJKAO2FN1)](https://codecov.io/gh/kosciak9/user-list)
+
 > _job hunt quest (hopefully conquest too)_
 
 ## hosted on Vercel
