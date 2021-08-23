@@ -1,6 +1,6 @@
-# user-List
+# `user-list`
 
-> job hunt quest (hopefully conquest too)
+> _job hunt quest (hopefully conquest too)_
 
 ## hosted on Vercel
 
