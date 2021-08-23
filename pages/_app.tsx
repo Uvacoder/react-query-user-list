@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import type { AppProps } from "next/app";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -14,7 +15,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <Hydrate state={pageProps.dehydratedState}>
           <Component {...pageProps} />
         </Hydrate>
-        {process.env.NODE_ENV !== 'production' ? <ReactQueryDevtools /> : null}
+        {process.env.NODE_ENV !== "production" ? <ReactQueryDevtools /> : null}
       </QueryClientProvider>
     </ChakraProvider>
   );

@@ -1,5 +1,6 @@
-import ky from "ky-universal";
-import { useQuery } from "react-query";
+import fetch from "cross-fetch";
+import wretch from "wretch";
+import { useQuery, UseQueryOptions } from "react-query";
 
 const USERS_QUERY_KEY = "users";
 
@@ -27,12 +28,15 @@ export interface User {
   };
 }
 
-const fetchUsers = (): Promise<User[]> => {
-  return ky("https://jsonplaceholder.typicode.com/users").json();
+const fetchUsers = async (): Promise<User[]> => {
+  const response = await wretch("https://jsonplaceholder.typicode.com/users")
+    .polyfills({ fetch })
+    .get();
+  return response.json();
 };
 
-const useUsers = () => {
-  return useQuery(USERS_QUERY_KEY, () => fetchUsers());
+const useUsers = (options?: UseQueryOptions<User[]>) => {
+  return useQuery(USERS_QUERY_KEY, () => fetchUsers(), options);
 };
 
 export { useUsers, fetchUsers, USERS_QUERY_KEY };

@@ -9,7 +9,7 @@ const originalRequire = Module.prototype.require;
 
 // The following ensures that there is always only a single (and same)
 // copy of React in an app at any given moment.
-Module.prototype.require = function(modulePath) {
+Module.prototype.require = function (modulePath) {
   // Only redirect resolutions to non-relative and non-absolute modules
   if (
     ["/react/", "/react-dom/", "/react-query/"].some((d) => {

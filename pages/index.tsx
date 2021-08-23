@@ -1,21 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { QueryClient } from "react-query";
 import { dehydrate } from "react-query/hydration";
-import { fetchUsers, USERS_QUERY_KEY } from "../api/users";
+import { fetchUsers, USERS_QUERY_KEY } from "api/users";
 import type { NextPage } from "next";
-import { UsersList } from "../components/UsersList";
-import Head from "next/head"
-import {
-  Center,
-  Container,
-  Heading,
-  IconButton,
-  Input,
-  InputGroup,
-  InputLeftElement,
-  InputRightElement,
-} from "@chakra-ui/react";
-import { CloseIcon, SearchIcon } from "@chakra-ui/icons";
+import Head from "next/head";
+import { Container } from "@chakra-ui/react";
+import { Users } from "components/Users";
 
 export async function getStaticProps() {
   const queryClient = new QueryClient();
@@ -30,34 +20,12 @@ export async function getStaticProps() {
 }
 
 const Home: NextPage = () => {
-  const [searchPhrase, setSearchPhrase] = useState("");
   return (
     <Container pt={16}>
-      <Head><title>User List</title></Head>
-      <Heading textAlign="center">Users list</Heading>
-      <Center py={16}>
-        <InputGroup maxW={250}>
-          <InputLeftElement
-            color="rgba(0, 0, 0, 0.1)"
-            pointerEvents="none"
-          >
-            <SearchIcon /></InputLeftElement>
-          <Input
-            variant="flushed"
-            value={searchPhrase}
-            onChange={(e) => setSearchPhrase(e.currentTarget.value)}
-          />
-          <InputRightElement>
-            <IconButton
-              variant="link"
-              icon={<CloseIcon color="ButtonShadow" />}
-              aria-label="Clear input"
-              onClick={() => setSearchPhrase("")}
-            />
-          </InputRightElement>
-        </InputGroup>
-      </Center>
-      <UsersList searchPhrase={searchPhrase} />
+      <Head>
+        <title>User List</title>
+      </Head>
+      <Users />
     </Container>
   );
 };
